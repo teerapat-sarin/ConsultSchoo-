@@ -1,0 +1,235 @@
+﻿<UserControl x:Class="projectover.ChangeImgConsultant"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:projectover"
+             mc:Ignorable="d" 
+             d:DesignHeight="800" d:DesignWidth="1400">
+    <Border CornerRadius="30" Background="White" >
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="80"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="80"/>
+            </Grid.RowDefinitions>
+            <Border CornerRadius="20" Background="#fff572" Grid.Row="0">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="100"/>
+                        <ColumnDefinition Width="350"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+
+                    <Button x:Name="backButton"
+                            Grid.Column="0" 
+                            Height="75" Width="75" 
+                            VerticalAlignment="Top" 
+                            Click="backbutton_Click"
+                            Foreground="#dc8ee9"
+                            Background="Transparent"
+                            BorderBrush="Transparent">
+                        <Image Source="C:\Users\acer\Desktop\png project\back-button.png"/>
+                    </Button>
+
+                    <Border Grid.Column="1">
+                        <Border.Background>
+                            <ImageBrush ImageSource="C:\Users\acer\Desktop\png project\Consult School.png" Stretch="UniformToFill"/>
+                        </Border.Background>
+                    </Border>
+                    <Border CornerRadius="20" Width="600" Grid.Column="2"
+                            Margin="0,0,150,0">
+                        <TextBlock Text="หน้าแบบฟอร์มสำหรับ โชว์บนโปรไฟล์"
+                           FontSize="36"
+                           FontWeight="ExtraBold"
+                           Foreground="#1E88E5"
+                           VerticalAlignment="Center"
+                           Grid.Row="0"
+                           FontFamily="Itim"/>
+                    </Border>
+                </Grid>
+            </Border>
+            <Grid Grid.Row="1">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+
+                <TextBlock Grid.Row="0"
+                           Grid.Column="0"
+                           Text="ชื่อ เล่น / สำหรับให้คนเรียก"
+                           FontFamily="itim"
+                           FontSize="36"
+                           VerticalAlignment="Top"
+                           Margin="30,20,30,0" Height="60"/>
+
+                <TextBlock Grid.Row="2"
+                           Grid.Column="0"
+                           Text="ชื่อ จริง (มีคำนำหน้า)"
+                           FontFamily="itim"
+                           FontSize="36"
+                           VerticalAlignment="Top"
+                           Margin="30,20,30,0" Height="60"/>
+
+                <TextBlock Grid.Row="4"
+                           Grid.Column="0"
+                           Text="บทบาท เช่น นักจิตวิทยาปรึกษา "
+                           FontFamily="itim"
+                           FontSize="36"
+                           VerticalAlignment="Top"
+                           Margin="30,20,30,0" Height="60"/>
+
+                <TextBlock Grid.Row="6"
+                           Grid.Column="0"
+                           Text="หัวข้อ หรือปัญหาที่จะช่วย"
+                           FontFamily="itim"
+                           FontSize="36"
+                           VerticalAlignment="Top"
+                           Margin="30,20,30,0" Height="60"/>
+
+                <Border CornerRadius="20"
+                        Background="White" 
+                        Grid.Row="1" 
+                        Grid.Column="0"
+                        BorderBrush="Black"
+                        BorderThickness="5"
+                        Height="65"
+                        Width="500"
+                        HorizontalAlignment="Left">
+                    <TextBox x:Name="TBName" 
+                             Background="Transparent" 
+                             BorderThickness="0"
+                             VerticalContentAlignment="Center"
+                             Padding="10,0,0,0" 
+                             FontSize="18"/>
+                </Border>
+
+                <Border CornerRadius="20"
+                        Background="White" 
+                        Grid.Row="3" 
+                        Grid.Column="0"
+                        BorderBrush="Black"
+                        BorderThickness="5"
+                        Height="65">
+                    <TextBox x:Name="TBFullname" 
+                             Background="Transparent" 
+                             BorderThickness="0"
+                             VerticalContentAlignment="Center"
+                             Padding="10,0,0,0" 
+                             FontSize="18"/>
+                </Border>
+
+                <Border CornerRadius="20"
+                        Background="White" 
+                        Grid.Row="5" 
+                        Grid.Column="0"
+                        BorderBrush="Black"
+                        BorderThickness="5"
+                        Height="65">
+                    <ComboBox x:Name="CBRole"
+                          Background="Transparent"
+                          BorderThickness="0"
+                          FontSize="18"
+                          Padding="10,0,0,0"
+                          VerticalContentAlignment="Center">
+                        <ComboBoxItem Content="นักจิตวิทยาคลินิก"/>
+                        <ComboBoxItem Content="นักจิตวิทยาให้คำปรึกษา"/>
+                        <ComboBoxItem Content="นักจิตวิทยาเด็กและวัยรุ่น"/>
+                        <ComboBoxItem Content="นักจิตวิทยาการศึกษา"/>
+                        <ComboBoxItem Content="นักจิตวิทยาอุตสาหกรรมและองค์กร"/>
+                        <ComboBoxItem Content="นักจิตวิทยากีฬา"/>
+                        <ComboBoxItem Content="นักจิตวิทยานิติวิทยาศาสตร์"/>
+                        <ComboBoxItem Content="นักจิตวิทยาวิจัย"/>
+                    </ComboBox>
+                </Border>
+
+                <Border CornerRadius="20"
+                        Background="White" 
+                        Grid.Row="7" 
+                        Grid.Column="0"
+                        BorderBrush="Black"
+                        BorderThickness="5"
+                        Height="65">
+                    <TextBox x:Name="TBTopic" 
+                             Background="Transparent" 
+                             BorderThickness="0"
+                             VerticalContentAlignment="Center"
+                             Padding="10,0,0,0" 
+                             FontSize="18"/>
+                </Border>
+
+                <TextBlock Grid.Row="0"
+                           Grid.Column="1"
+                           Text="รูป"
+                           FontFamily="itim"
+                           FontSize="48"
+                           VerticalAlignment="Top"
+                           Margin="30,20,30,0" Height="60"
+                           HorizontalAlignment="Center"/>
+
+                <Grid Grid.Column="1" Grid.Row="1" Grid.RowSpan="6">
+                    <Border CornerRadius="30" Width="320" Height="420"
+        BorderThickness="4" BorderBrush="Black" Background="Transparent">
+                        <Image Source="{Binding ImagePath}" Stretch="UniformToFill"/>
+                    </Border>
+
+                </Grid>
+
+                <Grid HorizontalAlignment="Center"  
+                          Grid.Column="1"
+                          Grid.Row="7"
+                          Height="60" Margin="-30">
+                    <Border CornerRadius="20" 
+                                Background="#b5ff9a"
+                                BorderBrush="Black"
+                                BorderThickness="4"
+                                Width="200">
+                        <Button     x:Name="BrowseButton"
+                                    Content="Browse"
+                                    Background="Transparent"
+                                    FontSize="36"
+                                    FontFamily="itim"
+                                    BorderThickness="0"
+                                    Click="Browse_Click"/>
+                    </Border>
+                </Grid>
+            </Grid>
+
+
+
+
+            <Border CornerRadius="20" Background="#fff572" Grid.Row="2" Padding="20">
+                <Grid HorizontalAlignment="Center"  Height="60" Margin="-30">
+                    <Border CornerRadius="20"
+                        Background="#b5ff9a"
+                        Width="150"
+                        Height="60"
+                        BorderThickness="4"
+                        BorderBrush="Black">
+                        <Button Background="Transparent"
+                            Content="ยืนยัน"
+                            Foreground="Black"
+                            FontSize="28"
+                            FontWeight="SemiBold"
+                            FontFamily="Itim"
+                            BorderThickness="0"
+                            Cursor="Hand"
+                                Click="Confirm_Click"/>
+                    </Border>
+                </Grid>
+            </Border>
+
+
+        </Grid>
+    </Border>
+</UserControl>

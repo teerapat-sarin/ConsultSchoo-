@@ -1,0 +1,226 @@
+﻿<UserControl x:Class="projectover.ChatPage"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:projectover"
+             d:DataContext="{d:DesignInstance Type=local:ChatMessage, IsDesignTimeCreatable=True}"
+             mc:Ignorable="d" 
+             d:DesignHeight="800" d:DesignWidth="1400">
+    <UserControl.Resources>
+        <local:AlignToColumnConverter x:Key="AlignToColumnConverter"/>
+        <local:SenderAvatarVisibilityConverter x:Key="SenderAvatarVisibilityConverter"/>
+    </UserControl.Resources>
+    <Grid Background="White">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="100"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="350"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <Grid Grid.Row="0" Grid.Column="0" Background="#fff572">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="100"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Button x:Name="HamburgerButton"
+                            Width="50" Height="40"
+                            HorizontalAlignment="Left" VerticalAlignment="Top"
+                            Margin="20,30,0,0"
+                            Foreground="#dc8ee9"
+                            Background="Transparent"
+                            BorderBrush="Transparent"
+                            BorderThickness="1" 
+                            Click="HamburgerButton_Click"
+                            Grid.Column="0">
+                <Image Source="C:\Users\acer\Downloads\sort.png"/>
+            </Button>
+
+            <Border CornerRadius="10" Margin="-30,0,0,0" Grid.Column="1" Width="300" HorizontalAlignment="Left" >
+                <Border.Background>
+                    <ImageBrush ImageSource="C:\Users\acer\Desktop\png project\Consult School.png" Stretch="UniformToFill"/>
+                </Border.Background>
+            </Border>
+        </Grid>
+        <Border Background="#fff572" Grid.Row="1" 
+                Grid.Column="0"
+                CornerRadius="30"
+                Height="650"
+                Width="330"
+                BorderThickness="4"
+                BorderBrush="Black">
+            
+            <ListView x:Name="ChatRoomList"
+              ItemsSource="{Binding ChatRooms}"
+              BorderThickness="0"
+              SelectionChanged="ChatRoomList_SelectionChanged"
+              Background="Transparent">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <Border CornerRadius="10" Background="White" BorderBrush="#ccc" BorderThickness="1" Width="300">
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="60"/>
+                                    <ColumnDefinition Width="*"/>
+                                </Grid.ColumnDefinitions>
+
+                                <Ellipse Width="50" Height="50"
+                                         Grid.Column="{Binding Align, Converter={StaticResource AlignToColumnConverter}}"
+                                         VerticalAlignment="Top"
+                                         Margin="0"  
+                                         Visibility="{Binding Align, Converter={StaticResource SenderAvatarVisibilityConverter}}">
+                                    <Ellipse.Fill>
+                                        <ImageBrush ImageSource="{Binding Avatar}" Stretch="UniformToFill" AlignmentY="Top"/>
+                                    </Ellipse.Fill>
+                                </Ellipse>
+
+                                <StackPanel Grid.Column="1" Margin="10,0,0,0">
+                                    <TextBlock Text="{Binding Name}" FontFamily="Itim" FontSize="20" FontWeight="Bold"/>
+                                    <TextBlock Text="{Binding LastMessage}" FontFamily="Itim" FontSize="16" Foreground="Gray" 
+                                       TextTrimming="CharacterEllipsis"/>
+                                </StackPanel>
+                            </Grid>
+                        </Border>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </Border>
+
+                <Popup x:Name="MenuPopup" IsOpen="False" Placement="Relative"/>
+
+        <Grid x:Name="HeaderGrid" Grid.Row="0" Grid.Column="1" Background="#fff572">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="150"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <Ellipse Width="90" Height="90" VerticalAlignment="Center" Grid.Column="0">
+                <Ellipse.Fill>
+                    <ImageBrush ImageSource="{Binding CurrentUserAvatar}" Stretch="UniformToFill" AlignmentY="Top"/>
+                </Ellipse.Fill>
+            </Ellipse>
+
+            <TextBlock Grid.Column="1"
+               Text="{Binding CurrentUserName}"   
+               FontFamily="itim"
+               FontSize="54"
+               Margin="0,20,0,0"/>
+
+            <Border Grid.Column="1" Width="200" Height="70" 
+                        HorizontalAlignment="Right" Margin="0,0,50,0" 
+                        Background="#24ff00"
+                        CornerRadius="20">
+                <Button Content="ให้คะแนน" 
+                            Background="Transparent" BorderThickness="0"
+                            FontFamily="itim"
+                            FontSize="36"
+                            Foreground="White"
+                            Click="Score_Click"/>
+            </Border>
+        </Grid>
+
+        <Grid Margin="0" Background="White" 
+               Grid.Row="1" Grid.Column="1" >
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*" />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+
+            <!-- แสดงข้อความทั้งหมด -->
+        <ScrollViewer Grid.Row="0" VerticalScrollBarVisibility="Auto">
+            <ItemsControl x:Name="ChatList"
+                        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+                        d:ItemsSource="{d:SampleData ItemCount=1}">
+                    <ItemsControl.ItemTemplate>
+                        <DataTemplate>
+                            <Grid Margin="0,10">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="60"/>
+                                    <!-- column สำหรับ avatar -->
+                                    <ColumnDefinition Width="*"/>
+                                    <!-- column สำหรับ bubble -->
+                                </Grid.ColumnDefinitions>
+
+                                <!-- Avatar -->
+                                <Ellipse Width="50" Height="50"
+                                         Grid.Column="0"
+                                         Margin="0,0,0,0"  
+                                         Visibility="{Binding Align, Converter={StaticResource SenderAvatarVisibilityConverter}}">
+                                    <Ellipse.Fill>
+                                        <ImageBrush ImageSource="{Binding Avatar}" Stretch="UniformToFill" AlignmentY="Top"/>
+                                    </Ellipse.Fill>
+                                </Ellipse>
+
+                                <!-- Bubble -->
+                                <StackPanel Grid.Column="1">
+                                    <StackPanel.Style>
+                                        <Style TargetType="StackPanel">
+                                            <Setter Property="HorizontalAlignment" Value="Left"/>
+                                            <Setter Property="Margin" Value="0,0,0,0"/>
+                                            <Style.Triggers>
+                                                <DataTrigger Binding="{Binding Align}" Value="Right">
+                                                    <Setter Property="HorizontalAlignment" Value="Right"/>
+                                                    <Setter Property="Margin" Value="0,0,60,0"/>
+                                                    <!-- เว้นช่องสำหรับ avatar ด้านขวา -->
+                                                </DataTrigger>
+                                            </Style.Triggers>
+                                        </Style>
+                                    </StackPanel.Style>
+
+                                    <!-- ชื่อผู้ส่ง -->
+                                    <TextBlock Text="{Binding SenderName}" FontWeight="Bold"
+                               FontFamily="Itim" FontSize="24"/>
+
+                                    <!-- ข้อความ -->
+                                    <Border Background="{Binding Background}" 
+                            CornerRadius="15"
+                            Padding="10"
+                            MaxWidth="700">
+                                        <TextBlock Text="{Binding Text}" TextWrapping="Wrap"
+                                   FontFamily="Itim"
+                                   FontSize="24"/>
+                                    </Border>
+                                </StackPanel>
+                            </Grid>
+                        </DataTemplate>
+                    </ItemsControl.ItemTemplate>
+                </ItemsControl>
+        </ScrollViewer>
+
+        <!-- กล่องพิมพ์ข้อความ -->
+            <StackPanel Grid.Row="1" Orientation="Horizontal" Margin="0,0,0,0" HorizontalAlignment="Left" VerticalAlignment="Top">
+                <Border CornerRadius="15" Background="White" Width="940" Height="50" 
+                 BorderThickness="4" BorderBrush="Black" >
+                    <TextBox x:Name="InputBox" 
+                 Background="Transparent" 
+                 BorderThickness="0" 
+                 Padding="10,5"
+                 VerticalContentAlignment="Center"
+                 FontSize="24"
+                 FontFamily="itim"/>
+                </Border>
+                
+                <Button Content="Send" Width="100" Height="40" Margin="10,0,0,0" 
+                        Background="#16a8de" Foreground="White" FontWeight="Bold" 
+                        BorderThickness="4" Cursor="Hand" FontSize="24" FontFamily="itim"
+                        BorderBrush="Black" Click="Send_Click">
+                    <Button.Template>
+                        <ControlTemplate TargetType="Button">
+                            <Border CornerRadius="15" Background="{TemplateBinding Background}">
+                                <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            </Border>
+                        </ControlTemplate>
+                    </Button.Template>
+                </Button>
+                
+            </StackPanel>
+    </Grid>
+        </Grid>
+    <UserControl.InputBindings>
+        <KeyBinding Key="Enter" Command="{x:Static ApplicationCommands.Open}" />
+    </UserControl.InputBindings>
+</UserControl>

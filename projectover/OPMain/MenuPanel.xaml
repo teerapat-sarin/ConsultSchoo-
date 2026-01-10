@@ -1,0 +1,231 @@
+﻿<UserControl x:Class="projectover.MenuPanel"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:projectover"
+             mc:Ignorable="d"
+             Background="Transparent" 
+             d:DesignWidth="250"
+             HorizontalAlignment="Left"
+             Height="Auto">
+    
+    <Border CornerRadius="20"
+                Width="250"
+                Background="#16a8de"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Top"
+                Margin="0,33,0,0"
+                ClipToBounds="False">
+        <Border.Effect>
+            <DropShadowEffect Color="Black" BlurRadius="15" ShadowDepth="0" Opacity="0.3"/>
+        </Border.Effect>
+
+        <Border.RenderTransform>
+            <TranslateTransform x:Name="MenuTranslate" X="-300" Y="0"/>
+        </Border.RenderTransform>
+
+        <StackPanel x:Name="Menustack"
+                    Panel.ZIndex="2"
+                    Grid.Column="0"
+                    Width="250"
+                    
+                    HorizontalAlignment="Center"
+                    RenderTransformOrigin="0.5,0.5"
+                    ClipToBounds="False">
+            <!-- ❌ ปิดการตัด content -->
+
+            <!-- Row แรก: รูปภาพ -->
+            <StackPanel Orientation="Horizontal"
+                HorizontalAlignment="Center"
+                Margin="0,-30,0,0"
+                ClipToBounds="False">
+
+                <!-- รูปที่ 1 -->
+                <Grid Height="50" Width="50" VerticalAlignment="Top">
+                    <Image Source="C:\Users\acer\Desktop\png project\cat.png"/>
+                </Grid>
+
+                <!-- รูปที่ 2 -->
+                <!-- ปุ่มรูปวงกลมตรงกลาง -->
+                <Button Click="ChangeImg_Click"
+                        Width="125"
+                        Height="125"
+                        BorderThickness="0"
+                        Background="Transparent"
+                        Cursor="Hand">
+                    <Grid>
+                        <!-- วงกลมรูปโปรไฟล์ -->
+                        <Ellipse x:Name="ProfileEllipse"
+                                 Width="120"
+                                 Height="120"
+                                 Stroke="LightGray"
+                                 StrokeThickness="2">
+                            <Ellipse.Fill>
+                                <ImageBrush x:Name="ProfileImageBrush"
+                                            ImageSource="C:\Users\acer\Desktop\png project\man.png"
+                                            Stretch="UniformToFill"
+                                            AlignmentX="Center"
+                                            AlignmentY="Top"
+                                            ViewboxUnits="RelativeToBoundingBox"
+                                            ViewportUnits="RelativeToBoundingBox"
+                                            Viewbox="0,0.05,1,0.95"/>
+                            </Ellipse.Fill>
+                        </Ellipse>
+
+                        <!-- Overlay ปากกา hover -->
+                        <Grid>
+                            <!-- Overlay มืดบาง ๆ -->
+                            <Rectangle x:Name="HoverOverlay"
+                       Width="120"
+                       Height="120"
+                       RadiusX="60"
+                       RadiusY="60"
+                       Fill="Black"
+                       Opacity="0"
+                       IsHitTestVisible="False"/>
+
+                            <!-- ไอคอนปากกา -->
+                            <Image x:Name="EditIcon"
+                   Source="C:\Users\acer\Desktop\png project\pencil.png"
+                   Width="40"
+                   Height="40"
+                   Opacity="0"
+                   HorizontalAlignment="Center"
+                   VerticalAlignment="Center"
+                   IsHitTestVisible="False"/>
+                        </Grid>
+                    </Grid>
+
+                    <Button.Triggers>
+                        <!-- Hover เข้า -->
+                        <EventTrigger RoutedEvent="MouseEnter">
+                            <BeginStoryboard>
+                                <Storyboard>
+                                    <DoubleAnimation Storyboard.TargetName="HoverOverlay"
+                                     Storyboard.TargetProperty="Opacity"
+                                     To="0.4" Duration="0:0:0.25"/>
+                                    <DoubleAnimation Storyboard.TargetName="EditIcon"
+                                     Storyboard.TargetProperty="Opacity"
+                                     To="1" Duration="0:0:0.25"/>
+                                </Storyboard>
+                            </BeginStoryboard>
+                        </EventTrigger>
+
+                        <!-- Hover ออก -->
+                        <EventTrigger RoutedEvent="MouseLeave">
+                            <BeginStoryboard>
+                                <Storyboard>
+                                    <DoubleAnimation Storyboard.TargetName="HoverOverlay"
+                                     Storyboard.TargetProperty="Opacity"
+                                     To="0" Duration="0:0:0.25"/>
+                                    <DoubleAnimation Storyboard.TargetName="EditIcon"
+                                     Storyboard.TargetProperty="Opacity"
+                                     To="0" Duration="0:0:0.25"/>
+                                </Storyboard>
+                            </BeginStoryboard>
+                        </EventTrigger>
+                    </Button.Triggers>
+                </Button>
+
+
+
+
+                <Grid Height="50" Width="50" VerticalAlignment="Top">
+                    <Image Source="C:\Users\acer\Desktop\png project\hamster.png"/>
+                </Grid>
+            </StackPanel>
+
+            <!-- ลบ margin ด้านบนและซ้ายเพื่อให้หลุดออก -->
+
+            <!-- Row ต่อมา -->
+            <Label x:Name="UsernameLabel" Content="Username" Foreground="White" Margin="10,-6" HorizontalAlignment="Center" FontSize="31" 
+                   FontFamily="/Resources/Noto/NotoSans-Bold.ttf#Noto Sans"/>
+            <Label x:Name="StatusLabel" Content="Status" Foreground="#ded6d6" Margin="10,-3" HorizontalAlignment="Center" FontSize="14"/>
+            <!-- ปุ่ม หน้าหลัก -->
+            <Border CornerRadius="20"  Background="#ffecb9" Width="230" Margin="5">
+                <Button Click="Home_Click" Margin="5" Height="50" Width="200" FontSize="25" Foreground="Black" Background="#ffecb9"
+                                BorderThickness="0" BorderBrush="Transparent" FontFamily="Itim">
+                    <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0,0,50,0">
+                        <!-- ไอคอน Home -->
+                        <Image Source="C:\Users\acer\Downloads\house.png" Width="28" Height="28" Margin="0,0,10,0"/>
+                        <!-- ข้อความ -->
+                        <TextBlock Text="หน้าหลัก" VerticalAlignment="Center"/>
+                    </StackPanel>
+                </Button>
+            </Border>
+            <!-- ปุ่ม ค้นหาตัวเอง -->
+            <Border CornerRadius="20"  Background="#ffecb9" Width="230" Margin="5">
+                <Button Click="Findurshelf_Click" Margin="5" Height="50" Width="200" FontSize="25" Foreground="Black" Background="#ffecb9"
+                                BorderThickness="0" BorderBrush="Transparent" FontFamily="Itim">
+                    <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0,0,20,0">
+                        <!-- ไอคอน Home -->
+                        <Image Source="C:\Users\acer\Desktop\png project\open-book.png" Width="28" Height="28" Margin="0,0,10,0"/>
+                        <!-- ข้อความ -->
+                        <TextBlock Text="ค้นหาตัวเอง" VerticalAlignment="Center" />
+                    </StackPanel>
+                </Button>
+            </Border>
+            <!-- ปุ่ม ผู้ให้ปรึกษา -->
+            <Border CornerRadius="20"  Background="#ffecb9" Width="230" Margin="5">
+                <Button Click="Consulter_Click" Margin="5" Height="50" Width="200" FontSize="25" Foreground="Black" Background="#ffecb9"
+                                BorderThickness="0" BorderBrush="Transparent" FontFamily="Itim">
+                    <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0,0,31,0" >
+                        <!-- ไอคอน Home -->
+                        <Image Source="C:\Users\acer\Desktop\png project\man.png" Width="28" Height="28" Margin="0,0,10,0"/>
+                        <!-- ข้อความ -->
+                        <TextBlock Text="ผู้ให้ปรึกษา" VerticalAlignment="Center"/>
+                    </StackPanel>
+                </Button>
+            </Border>
+            <!-- ปุ่ม แชท -->
+            <Border CornerRadius="20"  Background="#ffecb9" Width="230" Margin="5">
+                <Button Click="Chat_Click" Margin="5" Height="50" Width="230" FontSize="25" Foreground="Black" Background="#ffecb9"
+                                BorderThickness="0" BorderBrush="Transparent" FontFamily="Itim">
+                    <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0,0,103,0">
+                        <!-- ไอคอน Home -->
+                        <Image Source="C:\Users\acer\Desktop\png project\chat.png" Width="28" Height="28" Margin="0,0,10,0"/>
+                        <!-- ข้อความ -->
+                        <TextBlock Text="แชท" VerticalAlignment="Center"/>
+                    </StackPanel>
+                </Button>
+            </Border>
+            <!-- ปุ่ม แจ้งปัญหา -->
+            <Border CornerRadius="20"  Background="#ffecb9" Width="230" Margin="5">
+                <Button Click="Report_Click" Margin="5" Height="50" Width="230" FontSize="25" Foreground="Black" Background="#ffecb9"
+                            BorderThickness="0" BorderBrush="Transparent" FontFamily="Itim">
+                    <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="0,0,45,0" >
+                        <!-- ไอคอน Home -->
+                        <Image Source="C:\Users\acer\Desktop\png project\settings.png" Width="28" Height="28" Margin="0,0,10,0"/>
+                        <!-- ข้อความ -->
+                        <TextBlock Text="แจ้งปัญหา" VerticalAlignment="Center"/>
+                    </StackPanel>
+                </Button>
+            </Border>
+            <!-- ปุ่ม เกี่ยวกับ -->
+            <Border CornerRadius="20"  Background="#ffecb9" Width="230" Margin="5">
+                <Button Click="About_Click" Margin="5" Height="50" Width="230" FontSize="25" Foreground="Black" Background="#ffecb9"
+                                BorderThickness="0" BorderBrush="Transparent" FontFamily="Itim">
+                    <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0,0,70,0">
+                        <!-- ไอคอน Home -->
+                        <Image Source="C:\Users\acer\Desktop\png project\handle-bag.png" Width="28" Height="28" Margin="0,0,10,0"/>
+                        <!-- ข้อความ -->
+                        <TextBlock Text="เกี่ยวกับ" VerticalAlignment="Center"/>
+                    </StackPanel>
+                </Button>
+            </Border>
+            <!-- ปุ่ม ออกจากระบบ -->
+            <Border CornerRadius="20"  Background="#ffecb9" Width="230" Margin="5">
+                <Button Click="Logout_Click" Margin="5" Height="50" Width="230" FontSize="25" Foreground="Black" Background="#ffecb9"
+                                BorderThickness="0" BorderBrush="Transparent" FontFamily="Itim">
+                    <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="0,0,15,0">
+                        <!-- ไอคอน Home -->
+                        <Image Source="C:\Users\acer\Desktop\png project\exit.png" Width="28" Height="28" Margin="0,0,10,0"/>
+                        <!-- ข้อความ -->
+                        <TextBlock Text="ออกจากระบบ" VerticalAlignment="Center"/>
+                    </StackPanel>
+                </Button>
+            </Border>
+        </StackPanel>
+    </Border>
+</UserControl>

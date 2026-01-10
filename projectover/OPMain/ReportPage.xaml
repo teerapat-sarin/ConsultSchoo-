@@ -1,0 +1,124 @@
+﻿<UserControl x:Class="projectover.ReportPage"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:projectover"
+             mc:Ignorable="d" 
+             d:DesignHeight="800" d:DesignWidth="1400">
+    <UserControl.Resources>
+        <!-- Style สำหรับ Card -->
+        <Style x:Key="CardStyle" TargetType="Border">
+            <Setter Property="Width" Value="300"/>
+            <Setter Property="Height" Value="200"/>
+            <Setter Property="CornerRadius" Value="20"/>
+            <Setter Property="Background" Value="White"/>
+            <Setter Property="Margin" Value="10"/>
+            <Setter Property="Effect">
+                <Setter.Value>
+                    <DropShadowEffect ShadowDepth="2" BlurRadius="5" Opacity="0.3"/>
+                </Setter.Value>
+            </Setter>
+            <Setter Property="RenderTransformOrigin" Value="0.5,0.5"/>
+            <Setter Property="RenderTransform">
+                <Setter.Value>
+                    <ScaleTransform ScaleX="1" ScaleY="1"/>
+                </Setter.Value>
+            </Setter>
+            <Style.Triggers>
+                <!-- MouseOver -->
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="RenderTransform">
+                        <Setter.Value>
+                            <ScaleTransform ScaleX="1.1" ScaleY="1.1"/>
+                        </Setter.Value>
+                    </Setter>
+                    <Setter Property="Effect">
+                        <Setter.Value>
+                            <DropShadowEffect ShadowDepth="5" BlurRadius="10" Opacity="0.5"/>
+                        </Setter.Value>
+                    </Setter>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+    </UserControl.Resources>
+    <Border CornerRadius="30" Background="#f0f0f0">
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="70"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="20"/>
+            </Grid.RowDefinitions>
+
+            <Grid Grid.Row="0" Background="#fff572" Margin="0,0,0,-120">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="100"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Button x:Name="HamburgerButton"
+                            Width="50" Height="40"
+                            HorizontalAlignment="Left" VerticalAlignment="Top"
+                            Margin="20,30,0,0"
+                            Foreground="#dc8ee9"
+                            Background="Transparent"
+                            BorderBrush="Transparent"
+                            BorderThickness="1" 
+                            Click="HamburgerButton_Click"
+                            Grid.Column="0">
+                    <Image Source="C:\Users\acer\Downloads\sort.png"/>
+                </Button>
+
+                <Border CornerRadius="10" Margin="0,0,0,100" Grid.Column="1" Width="350" HorizontalAlignment="Left" >
+                    <Border.Background>
+                        <ImageBrush ImageSource="C:\Users\acer\Desktop\png project\Consult School.png" Stretch="UniformToFill"/>
+                    </Border.Background>
+                </Border>
+            </Grid>
+
+            <Popup x:Name="MenuPopup" IsOpen="False" Placement="Relative"/>
+
+            <Grid Grid.Row="1" Margin="40,0,0,0">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="60"/>
+                    <!-- แถวบน: หัวข้อ -->
+                    <RowDefinition Height="*"/>
+                    <!-- แถวล่าง: ScrollViewer -->
+                </Grid.RowDefinitions>
+
+                <!-- ข้อความหัวเรื่อง -->
+                <Border CornerRadius="20" Background="#ff1a1a" Width="400" >
+                    <TextBlock Text="รายงานปัญหากับแอดมิน"
+                   FontSize="36"
+                   FontWeight="ExtraBold"
+                   Foreground="White"
+                   HorizontalAlignment="Center"
+                   VerticalAlignment="Center"
+                   Grid.Row="0"
+                   FontFamily="Itim"/>
+                </Border>
+
+                <!-- ScrollViewer -->
+                <Border Grid.Row="1"
+                    CornerRadius="20"
+                    Background="White"
+                    Margin="0,0,20,0"
+                    SnapsToDevicePixels="True"
+                    ClipToBounds="True">
+                    <!-- เพื่อให้ scroll bar โค้งตาม -->
+                    <!--local:CardConsulter Margin="10"/  การ์ดไว้สำหรับทดสอบ scroll bar -->
+                    <ScrollViewer VerticalScrollBarVisibility="Auto"
+                  HorizontalScrollBarVisibility="Disabled"
+                  Padding="30">
+                        <WrapPanel x:Name="WrapPanelContainer"
+                   HorizontalAlignment="Left"
+                   VerticalAlignment="Top"
+                   ItemWidth="220"
+                   ItemHeight="320"
+                   Margin="100,0,0,0">
+                        </WrapPanel>
+                    </ScrollViewer>
+                </Border>
+            </Grid>
+        </Grid>
+    </Border>
+</UserControl>

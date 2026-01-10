@@ -1,0 +1,70 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.13.35913.81
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "projectover", "projectover\projectover.csproj", "{9A084D5B-F13B-49CD-AC87-0219E500AAFA}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Image", "Image", "{02EA681E-C7D8-13C7-8484-4AC65E1B71E8}"
+	ProjectSection(SolutionItems) = preProject
+		C:\Users\acer\Downloads\74c88df9-8a05-4789-b7d6-0415ca9f79ad.jfif = C:\Users\acer\Downloads\74c88df9-8a05-4789-b7d6-0415ca9f79ad.jfif
+		C:\Users\acer\Desktop\png project\back-button.png = C:\Users\acer\Desktop\png project\back-button.png
+		C:\Users\acer\Desktop\png project\cat.png = C:\Users\acer\Desktop\png project\cat.png
+		C:\Users\acer\Desktop\png project\chat.png = C:\Users\acer\Desktop\png project\chat.png
+		C:\Users\acer\Desktop\png project\Consult School.png = C:\Users\acer\Desktop\png project\Consult School.png
+		C:\Users\acer\Desktop\png project\exit.png = C:\Users\acer\Desktop\png project\exit.png
+		C:\Users\acer\Desktop\png project\facebook.png = C:\Users\acer\Desktop\png project\facebook.png
+		C:\Users\acer\Desktop\png project\hamster.png = C:\Users\acer\Desktop\png project\hamster.png
+		C:\Users\acer\Desktop\png project\handle-bag.png = C:\Users\acer\Desktop\png project\handle-bag.png
+		C:\Users\acer\Downloads\house.png = C:\Users\acer\Downloads\house.png
+		C:\Users\acer\Desktop\png project\instagram.png = C:\Users\acer\Desktop\png project\instagram.png
+		C:\Users\acer\Downloads\Khuna.jfif = C:\Users\acer\Downloads\Khuna.jfif
+		C:\Users\acer\Downloads\KhunaKorn.jpg = C:\Users\acer\Downloads\KhunaKorn.jpg
+		C:\Users\acer\Desktop\png project\Logo.jpeg = C:\Users\acer\Desktop\png project\Logo.jpeg
+		C:\Users\acer\Desktop\png project\Logo2.jpeg = C:\Users\acer\Desktop\png project\Logo2.jpeg
+		C:\Users\acer\Downloads\LogotoUseAll.png = C:\Users\acer\Downloads\LogotoUseAll.png
+		C:\Users\acer\Desktop\png project\man.png = C:\Users\acer\Desktop\png project\man.png
+		C:\Users\acer\Desktop\png project\open-book.png = C:\Users\acer\Desktop\png project\open-book.png
+		C:\Users\acer\Desktop\png project\pencil.png = C:\Users\acer\Desktop\png project\pencil.png
+		C:\Users\acer\Downloads\Pe_bungFai.jfif = C:\Users\acer\Downloads\Pe_bungFai.jfif
+		C:\Users\acer\Desktop\Professor\Pe_jumpa.jpg = C:\Users\acer\Desktop\Professor\Pe_jumpa.jpg
+		C:\Users\acer\Desktop\png project\phone-call.png = C:\Users\acer\Desktop\png project\phone-call.png
+		C:\Users\acer\Downloads\PhonngsaDuang.png = C:\Users\acer\Downloads\PhonngsaDuang.png
+		C:\Users\acer\Desktop\png project\profile.png = C:\Users\acer\Desktop\png project\profile.png
+		C:\Users\acer\Desktop\png project\Project c# UI.png = C:\Users\acer\Desktop\png project\Project c# UI.png
+		C:\Users\acer\Desktop\png project\question.png = C:\Users\acer\Desktop\png project\question.png
+		C:\Users\acer\Downloads\Sati.jpg = C:\Users\acer\Downloads\Sati.jpg
+		C:\Users\acer\Desktop\png project\settings.png = C:\Users\acer\Desktop\png project\settings.png
+		C:\Users\acer\Downloads\sort.png = C:\Users\acer\Downloads\sort.png
+		C:\Users\acer\Desktop\png project\stocks.png = C:\Users\acer\Desktop\png project\stocks.png
+		C:\Users\acer\Desktop\png project\User.png = C:\Users\acer\Desktop\png project\User.png
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Professor", "Professor", "{321188FC-52AC-413E-9012-751F6018E5F7}"
+	ProjectSection(SolutionItems) = preProject
+		C:\Users\acer\Desktop\Professor\chayodoms.jpg = C:\Users\acer\Desktop\Professor\chayodoms.jpg
+		C:\Users\acer\Desktop\Professor\Peechayah.jpg = C:\Users\acer\Desktop\Professor\Peechayah.jpg
+		C:\Users\acer\Desktop\Professor\Pe_jumpa.jpg = C:\Users\acer\Desktop\Professor\Pe_jumpa.jpg
+		C:\Users\acer\Desktop\Professor\SaDuang.jpg = C:\Users\acer\Desktop\Professor\SaDuang.jpg
+		..\..\..\UseThisFileForProject\Satiiii.png = ..\..\..\UseThisFileForProject\Satiiii.png
+		C:\Users\acer\Desktop\Professor\Teerapat.png = C:\Users\acer\Desktop\Professor\Teerapat.png
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{9A084D5B-F13B-49CD-AC87-0219E500AAFA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9A084D5B-F13B-49CD-AC87-0219E500AAFA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9A084D5B-F13B-49CD-AC87-0219E500AAFA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9A084D5B-F13B-49CD-AC87-0219E500AAFA}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {92E4CB62-6EF5-4AB0-B044-56243121C50B}
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,8 @@
+﻿<Application x:Class="projectover.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             StartupUri="MainWindow.xaml">
+    <Application.Resources>
+        <!-- ถ้ามี ResourceDictionary หรือ Style ใส่เพิ่มได้ตรงนี้ -->
+    </Application.Resources>
+</Application>
